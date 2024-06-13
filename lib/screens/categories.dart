@@ -6,7 +6,7 @@ import 'package:meals_app/widgets/category_grid_item.dart';
 class CategoriesScreen extends StatelessWidget {
   const CategoriesScreen({super.key});
 
-  void _selectCategory() {
+  void _selectCategory(BuildContext context) {
     Navigator.push(context, route)
   }
 
