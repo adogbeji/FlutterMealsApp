@@ -11,6 +11,9 @@ class MealItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(child: InkWell(
       onTap: () {},
+      child: Stack(
+        children: [],
+      ),
     ),);
   }
 }
