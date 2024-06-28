@@ -10,6 +10,10 @@ class MealItem extends StatelessWidget {
 
   final Meal meal;
 
+  String get complexityText {
+    return meal.complexity.name[0].toUpperCase();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -59,7 +63,15 @@ class MealItem extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        MealItemTrait(icon: Icons.schedule, label: '${meal.duration} min'),
+                        MealItemTrait(
+                          icon: Icons.schedule,
+                          label: '${meal.duration} min',
+                        ),
+                        const SizedBox(width: 12,),
+                        MealItemTrait(
+                          icon: Icons.work,
+                          label: '${meal.complexity} min',
+                        ),
                       ],
                     ),
                   ],
