@@ -10,6 +10,19 @@ class TabsScreen extends StatefulWidget {
 class _TabsScreenState extends State<TabsScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Dynamic Title...'),
+      ),
+      // body: ,
+      bottomNavigationBar: BottomNavigationBar(
+        onTap: (index) {},
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.set_meal),
+          ),
+        ],
+      ),
+    );
   }
 }
