@@ -10,6 +10,12 @@ class TabsScreen extends StatefulWidget {
 class _TabsScreenState extends State<TabsScreen> {
   int _selectedPageIndex = 0;
 
+  void _selectPage(int index) {
+    setState(() {
+      _selectedPageIndex = index; 
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +24,7 @@ class _TabsScreenState extends State<TabsScreen> {
       ),
       // body: ,
       bottomNavigationBar: BottomNavigationBar(
-        onTap: (index) {},
+        onTap: _selectPage,
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.set_meal),
