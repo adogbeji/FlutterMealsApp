@@ -8,6 +8,13 @@ import 'package:meals_app/screens/categories.dart';
 class TabsScreen extends StatefulWidget {
   const TabsScreen({super.key});
 
+  @override
+  State<TabsScreen> createState() => _TabsScreenState();
+}
+
+class _TabsScreenState extends State<TabsScreen> {
+  int _selectedPageIndex = 0;
+
   final List<Meal> _favouriteMeals = [];
 
   void _toggleMealFavouriteStatus(Meal meal) {
@@ -20,13 +27,6 @@ class TabsScreen extends StatefulWidget {
     }
   }
 
-  @override
-  State<TabsScreen> createState() => _TabsScreenState();
-}
-
-class _TabsScreenState extends State<TabsScreen> {
-  int _selectedPageIndex = 0;
-
   void _selectPage(int index) {
     setState(() {
       _selectedPageIndex = index; 
@@ -35,11 +35,11 @@ class _TabsScreenState extends State<TabsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    Widget activePage = const CategoriesScreen();
+    Widget activePage = CategoriesScreen(onToggleFavourite: _toggleMealFavouriteStatus,);
     var activePageTitle = 'Categories';
 
     if (_selectedPageIndex == 1) {
-      activePage = const MealsScreen(meals: []);
+      activePage = MealsScreen(meals: [], onToggleFavourite: _toggleMealFavouriteStatus);
       activePageTitle = 'Your Favourites';
     }
 
