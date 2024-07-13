@@ -1,10 +1,24 @@
 import 'package:flutter/material.dart';
 
+import 'package:meals_app/models/meal.dart';
+
 import 'package:meals_app/screens/meals.dart';
 import 'package:meals_app/screens/categories.dart';
 
 class TabsScreen extends StatefulWidget {
   const TabsScreen({super.key});
+
+  final List<Meal> _favouriteMeals = [];
+
+  void _toggleMealFavouriteStatus(Meal meal) {
+    final isExisting = _favouriteMeals.contains(meal);
+
+    if (isExisting) {
+      _favouriteMeals.remove(meal);
+    } else {
+      _favouriteMeals.add(meal);
+    }
+  }
 
   @override
   State<TabsScreen> createState() => _TabsScreenState();
