@@ -19,13 +19,13 @@ class _FiltersScreenState extends State<FiltersScreen> {
       appBar: AppBar(
         title: const Text('Your Filters'),
       ),
-      drawer: MainDrawer(onSelectScreen: (identifier) {
-        Navigator.of(context).pop();
+      // drawer: MainDrawer(onSelectScreen: (identifier) {
+      //   Navigator.of(context).pop();
 
-        if (identifier == 'meals') {
-          Navigator.of(context).push(MaterialPageRoute(builder: (ctx) => const TabsScreen(),),);
-        }
-      },),
+      //   if (identifier == 'meals') {
+      //     Navigator.of(context).push(MaterialPageRoute(builder: (ctx) => const TabsScreen(),),);
+      //   }
+      // },),
       body: Column(
         children: [
           SwitchListTile(
