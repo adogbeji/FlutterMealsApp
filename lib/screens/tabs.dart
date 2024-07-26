@@ -7,6 +7,13 @@ import 'package:meals_app/screens/categories.dart';
 import 'package:meals_app/screens/filters.dart';
 import 'package:meals_app/widgets/main_drawer.dart';
 
+const kInitialFilters = {
+    Filter.glutenFree: false,
+    Filter.lactoseFree: false,
+    Filter.vegetarian: false,
+    Filter.vegan: false,
+  };
+
 class TabsScreen extends StatefulWidget {
   const TabsScreen({super.key});
 
@@ -19,12 +26,7 @@ class _TabsScreenState extends State<TabsScreen> {
 
   final List<Meal> _favouriteMeals = [];
 
-  Map<Filter, bool> _selectedFilters = {
-    Filter.glutenFree: false,
-    Filter.lactoseFree: false,
-    Filter.vegetarian: false,
-    Filter.vegan: false,
-  };
+  Map<Filter, bool> _selectedFilters = kInitialFilters;
 
   void _showInfoMessage(String message) {
     ScaffoldMessenger.of(context)
@@ -68,7 +70,7 @@ class _TabsScreenState extends State<TabsScreen> {
       );
       
       setState(() {
-        _selectedFilters = result;
+        _selectedFilters = result ?? kInitialFilters;
       });
     } 
   }
