@@ -19,6 +19,13 @@ class _TabsScreenState extends State<TabsScreen> {
 
   final List<Meal> _favouriteMeals = [];
 
+  Map<Filter, bool> _selectedFilters = {
+    Filter.glutenFree: false,
+    Filter.lactoseFree: false,
+    Filter.vegetarian: false,
+    Filter.vegan: false,
+  };
+
   void _showInfoMessage(String message) {
     ScaffoldMessenger.of(context)
         .clearSnackBars(); // Removes any existing info messages ("snack bars")
@@ -59,8 +66,10 @@ class _TabsScreenState extends State<TabsScreen> {
           builder: (ctx) => const FiltersScreen(),
         ),
       );
-
-      print(result);
+      
+      setState(() {
+        _selectedFilters = result;
+      });
     } 
   }
 
